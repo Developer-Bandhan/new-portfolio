@@ -444,7 +444,7 @@ function locoScrollTrigger() {
   
     function page3Animation(){
     
-      if (window.innerWidth > 450) {
+      if (window.innerWidth > 600) {
       let page3Elem = document.querySelectorAll(".page3-right .elem");
       
       page3Elem.forEach(elem => {
@@ -558,7 +558,7 @@ function locoScrollTrigger() {
   
   
   function page4Animation(){
-   if(window.innerWidth > 450){
+   if(window.innerWidth > 600){
     gsap.to(".page4-left",{
       scrollTrigger:{
         trigger:".page4",
