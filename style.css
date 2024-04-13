@@ -61,6 +61,7 @@ html {
     height: 100%;
     width: 100%;
     background-color: var(--page--color-1);
+    /* overflow: hidden; */
 }
 
 main {
@@ -646,6 +647,21 @@ nav {
     overflow: hidden;
     z-index: 5;
 }
+.round-cover2{
+    height: 10vw;
+    width: 10vw;
+    border-radius:50% ;
+    background-color: var(--unique--cover--color);
+    position: absolute;
+    display: flex;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
 
 .round-button2 h4{
     font-size: 1.09vw;
@@ -668,7 +684,7 @@ nav {
 }
 
 
-.round-button2:hover .round-cover{
+.round-button2:hover .round-cover2{
     transform: translateY(0);
 }
 

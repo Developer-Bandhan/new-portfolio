@@ -1,7 +1,7 @@
 function locoScrollTrigger() {
+   if(window.innerWidth > 600){
     gsap.registerPlugin(ScrollTrigger);
   
-    // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
   
     const locoScroll = new LocomotiveScroll({
       el: document.querySelector("main"),
@@ -38,6 +38,7 @@ function locoScrollTrigger() {
   
     // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
     ScrollTrigger.refresh();
+   }
   
   }
   locoScrollTrigger();
@@ -182,6 +183,11 @@ function locoScrollTrigger() {
   
   // page 2 animation
      // page2 button animation
+
+
+
+
+    
   
      
   function page2Animation(){
@@ -190,7 +196,8 @@ function locoScrollTrigger() {
   let page2 = document.querySelector(".page2")
   
   
-  
+  if(window.innerWidth > 600 ){
+    
   page2.addEventListener("mouseenter", function(){
     gsap.to(".cursor",{
       scale:1,
@@ -238,15 +245,59 @@ function locoScrollTrigger() {
     scrollTrigger:{
     trigger:".page2",
      scroller:"main",
-     marker: true,
+     markers: true,
      start:"top 100%",
      end:"0%",
     }
   })
+
+  }else{
+    gsap.to(".page2-left span",{
+      y:0,
+      delay:-5,
+      duration: 0.4,
+      stagger: {
+        amount: 0.3
+      },
+      scrollTrigger:{
+      trigger:".page2",
+       scroller:"body",
+       scrub: 2,
+      //  markers: true,
+       start:"0% 80%",
+       end:"0% 80%",
+      }
+    })
+
+
+
+    
+  let roundButtom = document.querySelector(".round-button");
+
+  gsap.to(roundButtom,{
+    scale: 1,
+    opacity:1,
+    x:"100%",
+    duration: 10,
+    scrollTrigger:{
+      trigger:".page2",
+      scroller:"body",
+      start: "30% 90%",
+      end: "30% 90%",
+      scrub: 2,
+      // markers: true
+    }
+    
+  })
+
+
+
+  }
   
   }
   
   page2Animation()
+
   
   
   
@@ -261,40 +312,42 @@ function locoScrollTrigger() {
   
   function createInteractiveEffect(button, text, strength = 40, textStrength = 80) {
     // Function to activate the effect
+   if(window.innerWidth > 600 ){
     const activateEffect = (event) => {
-        const boundBox = button.getBoundingClientRect();
-        const newX = (event.clientX - boundBox.left) / button.offsetWidth - 0.5;
-        const newY = (event.clientY - boundBox.top) / button.offsetHeight - 0.5;
-  
-        // Move the button and text to new positions
-        gsap.to(button, {
-            duration: 1,
-            x: newX * strength,
-            y: newY * strength,
-            ease: Power4.easeOut
-        });
-        gsap.to(text, {
-            duration: 1,
-            x: newX * textStrength,
-            y: newY * textStrength,
-            ease: Power4.easeOut
-        });
-    };
-  
-    // Function to reset the effect
-    const resetEffect = () => {
-        // Reset button and text positions to default
-        gsap.to([button, text], {
-            duration: 1,
-            x: 0,
-            y: 0,
-            ease: Elastic.easeOut
-        });
-    };
-  
-    // Add event listeners
-    button.addEventListener('mousemove', activateEffect);
-    button.addEventListener('mouseleave', resetEffect);
+      const boundBox = button.getBoundingClientRect();
+      const newX = (event.clientX - boundBox.left) / button.offsetWidth - 0.5;
+      const newY = (event.clientY - boundBox.top) / button.offsetHeight - 0.5;
+
+      // Move the button and text to new positions
+      gsap.to(button, {
+          duration: 1,
+          x: newX * strength,
+          y: newY * strength,
+          ease: Power4.easeOut
+      });
+      gsap.to(text, {
+          duration: 1,
+          x: newX * textStrength,
+          y: newY * textStrength,
+          ease: Power4.easeOut
+      });
+  };
+
+  // Function to reset the effect
+  const resetEffect = () => {
+      // Reset button and text positions to default
+      gsap.to([button, text], {
+          duration: 1,
+          x: 0,
+          y: 0,
+          ease: Elastic.easeOut
+      });
+  };
+
+  // Add event listeners
+  button.addEventListener('mousemove', activateEffect);
+  button.addEventListener('mouseleave', resetEffect);
+   }
   }
   
   // Example usage for each button
@@ -331,113 +384,6 @@ function locoScrollTrigger() {
   
   
   
-  
-  
-  // page3 animation 
-  // if ($(window).width() > 450) {
-    // function page3Animation(){
-    
-    //   let page3Elem = document.querySelectorAll(".page3-right .elem");
-      
-    //   page3Elem.forEach(elem => {
-    //     elem.addEventListener("mouseenter", function(){
-    //       gsap.to(elem.childNodes[3],{
-    //         scale: 1
-    //       })
-    //     })
-      
-    //     elem.addEventListener("mouseleave", function(){
-    //       gsap.to(elem.childNodes[3],{
-    //         scale: 0
-    //       })
-    //     })
-      
-    //     elem.addEventListener("mousemove", function(dets){
-    //       gsap.to(elem.childNodes[3],{
-    //         x:dets.x - elem.getBoundingClientRect().x - 150,
-    //         y:dets.y - elem.getBoundingClientRect().y - 150
-    //       })
-    //     })
-    //   });
-      
-      
-      
-    //   let page3H1 = document.querySelector(".page3-h1 span h1")
-      
-      
-      
-    //   gsap.to(page3H1,{
-    //     y:0,
-    //     duration:0.5,
-    //     stagger:{
-    //       amount: 0.5
-    //     },
-    //     scrollTrigger:{
-    //       trigger:".page3",
-    //       scroller:"main",
-    //       // markers: true,
-    //       start:"top 50%",
-    //       end:"80%",
-    //     },
-    //     onComplete: function(){
-    //       fontSmall()
-    //     }
-    //   })
-      
-      
-    //   function fontSmall(){
-    //     gsap.to(page3H1,{
-    //       fontSize: "4.6vw",
-    //       // fontSize: 72,
-    //       onComplete: page3opacity()
-    //     })
-    //   }
-      
-    //   function page3opacity(){
-    //     gsap.to(".page3-content",{
-    //       opacity:1,
-    //       duration:0.6
-    //     })
-    //   }
-    //   }
-      
-    //   page3Animation()
-      
-    // // }
-  
-  
-  
-  
-  
-  
-  
-  // let page3H1 = document.querySelector(".page3-h1 span h1")
-  
-  // gsap.to(page3H1,{
-  //   y:0,
-  //   duration:0.5,
-  //   stagger:{
-  //     amount: 0.5
-  //   },
-  //   scrollTrigger:{
-  //     trigger:".page3",
-  //     scroller:"main",
-  //     // markers: true,
-  //     start:"top 50%",
-  //     end:"80%",
-  //   },
-  //   onComplete: function(){
-  //     fontSmall()
-  //   }
-  // })
-  
-  
-  // function fontSmall(){
-  //   gsap.to(page3H1,{
-  //     fontSize: 25,
-  //     // onComplete: page3opacity()
-  //   })
-  // }
   
   
   
@@ -495,7 +441,7 @@ function locoScrollTrigger() {
       
       function fontSmall(){
         gsap.to(page3H1,{
-          fontSize: "4.6vw",
+          fontSize: "4vw",
           onComplete: page3opacity()
         })
       }
@@ -522,10 +468,10 @@ function locoScrollTrigger() {
         },
         scrollTrigger:{
           trigger:".page3",
-          scroller:"main",
+          scroller:"body",
           // markers: true,
-          start:"top 50%",
-          end:"80%",
+          start:"0% 90%",
+          end:"0% 90%",
         },
         onComplete: function(){
           fontSmall()
@@ -535,7 +481,7 @@ function locoScrollTrigger() {
       
       function fontSmall(){
         gsap.to(page3H1,{
-          fontSize: "8vw",
+          fontSize: "9vw",
           onComplete: page3opacity()
         })
       }
@@ -576,10 +522,10 @@ function locoScrollTrigger() {
   let pinTimeline1 = gsap.timeline({
     scrollTrigger: {
       trigger: ".right-box-1",
-      scroller: "main",
-      start: "30% 40%",
-      end: "200% 20%",
-      // markers:true,
+      scroller: "body",
+      start: "30% 80%",
+      end: "200% 30%",
+      markers:true,
       scrub: 2,
       pin: true 
     }
@@ -591,7 +537,7 @@ function locoScrollTrigger() {
   let pinTimeline2 = gsap.timeline({
     scrollTrigger: {
       trigger: ".right-box-2",
-      scroller: "main",
+      scroller: "body",
       start: "27% 40%",
       end: "90% 20%",
       // markers:true,
@@ -604,7 +550,7 @@ function locoScrollTrigger() {
   let pinTimeline3 = gsap.timeline({
     scrollTrigger: {
       trigger: ".right-box-3",
-      scroller: "main",
+      scroller: "body",
       start: "26.8% 40%",
       end: "35% 25%",
       // markers:true,
@@ -615,7 +561,7 @@ function locoScrollTrigger() {
   
   
   pinTimeline1.to(".right-box-1", { 
-    top:"0%"
+    top:"-50%"
    });
   pinTimeline2.to(".right-box-2", { 
     top: "0%"
@@ -635,84 +581,6 @@ function locoScrollTrigger() {
   
   }
   page4Animation()
-  
-  
-  
-  
-  // let page4Box = document.querySelectorAll(".page4-right-box");
-  
-  // page4Box.forEach((box, index) => {
-  //   if(index > 0){
-  //     gsap.to(box,{
-  //       y:0,
-  //       duration: index * 0.5,
-  //       ease: "none"
-  //     })
-  //   }
-  // })
-  
-  
-  
-  
-  
-  
-  // gsap.to(".page4-right-box",{
-  //   scrollTrigger:{
-  //     trigger:".page4",
-  //     scroller: "main",
-  //     pin:".right-box-1",
-  //     scrub: 0.5,
-  //     start: "top -10%",
-  //     end:"10%",
-  //     markers: true,
-  //     onComplete: rightBox2()
-  //   }
-  
-  // })
-  
-  
-  
-  
-  
-  
-  
-  // function rightBox2(){
-  //     gsap.to(".right-box-2",{
-  //     transform: "translateY(10%)",
-  //     scrollTrigger:{
-  //       trigger:".page4",
-  //     scroller: "main",
-  //     scrub: 0.5,
-  //     pin:".right-box-2",
-  //     start: "top -10%",
-  //     end:"90%",
-  //     markers: true,
-  
-  //     }
-  //   })
-  // }
-  
-  //  let tl = gsap.timeline({
-  //   scrollTrigger:{
-  //     trigger:".right-box-1",
-  //     scroller:"main",
-  //     markers: true,
-  //     start:"30% 40%",
-  //     end: "200% 50%",
-  //     scrub: 2,
-  //     // pin: ".right-box-1",
-  //     pin: true
-  
-  //   }
-  //  },'a');
-  //  tl.to(".right-box-2",{
-  //   top: "95%",
-  //   pin: true
-  //  }, 'a')
-  // tl.to(".right-box-3",{
-  //   top:"20%"
-  // })
-  
   
   
   
