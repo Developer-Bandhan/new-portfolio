@@ -268,7 +268,6 @@ function locoScrollTrigger() {
     scrollTrigger:{
     trigger:".page2",
      scroller:"main",
-     markers: true,
      start:"top 100%",
      end:"0%",
     }
@@ -545,7 +544,6 @@ function locoScrollTrigger() {
       trigger: ".right-box-1",
       scroller: "body",
       start: "top 20%",
-      // markers:true,
       end: "233% 20%",
       scrub: 2,
       pin: true,
@@ -559,7 +557,6 @@ function locoScrollTrigger() {
     scrollTrigger: {
       trigger: ".right-box-2",
       scroller: "body",
-      // markers:true,
 
       start: "top 20%",
       end: "101% 20%",
@@ -627,7 +624,6 @@ function locoScrollTrigger() {
         trigger:".page5",
         scroller:"main",
         start:"top 70%",
-        // markers:true,
         end:"70%",
         scrub:2
       }
@@ -641,7 +637,6 @@ function locoScrollTrigger() {
         trigger:".page5",
         scroller:"body",
         start:"top 70%",
-        // markers:true,
         end:"100% 70%",
         scrub:2
       }
@@ -663,7 +658,6 @@ function locoScrollTrigger() {
     scrollTrigger:{
       scroller:"main",
       trigger:".page5",
-      // markers: true,
       start:"top 30%",
       end: "top 30%",
       scrub:2
@@ -678,7 +672,6 @@ else{
       scroller:"body",
       scrub:2,
       trigger:".page5",
-      // markers: true,
       start:"top 20%",
       end: " 20%"
     }
