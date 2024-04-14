@@ -279,7 +279,11 @@ nav {
     display: none;
 }
 
-
+.mobile-nav-div{
+    height: 0;
+    width: 0;
+    display: none;
+}
 
 
 
@@ -960,7 +964,7 @@ nav {
   height: 10vw;
   width: 40vw;
   left: 7.2%;
-  bottom: 23.5%;
+  bottom: 27.5%;
 } 
 
 

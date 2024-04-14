@@ -145,6 +145,29 @@ function locoScrollTrigger() {
   
   
   //page1 animation
+
+  // let menu = document.querySelector(".mobile-nav")
+  // let navDiv = document.querySelector(".mobile-nav-div")
+
+
+  // menu.addEventListener("click", function(){
+  //   navDiv.classList.remove(".hide")
+  //   body.classList.add(".active")
+  // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   function page1Text(){
@@ -254,8 +277,7 @@ function locoScrollTrigger() {
   }else{
     gsap.to(".page2-left span",{
       y:0,
-      delay:-5,
-      duration: 0.4,
+      duration: 1,
       stagger: {
         amount: 0.3
       },
@@ -282,8 +304,8 @@ function locoScrollTrigger() {
     scrollTrigger:{
       trigger:".page2",
       scroller:"body",
-      start: "30% 90%",
-      end: "30% 90%",
+      start: "30% 80%",
+      end: "30% 80%",
       scrub: 2,
       // markers: true
     }
@@ -518,59 +540,52 @@ function locoScrollTrigger() {
    }else{
      
    
-  
   let pinTimeline1 = gsap.timeline({
     scrollTrigger: {
       trigger: ".right-box-1",
       scroller: "body",
-      start: "30% 80%",
-      end: "200% 30%",
-      markers:true,
+      start: "top 20%",
+      // markers:true,
+      end: "233% 20%",
       scrub: 2,
-      pin: true 
+      pin: true,
+      onEnter: () => {
+        gsap.set(".right-box-1", { top: "20%" });
+      }
     }
   });
-  
-  
-  
-  
+
   let pinTimeline2 = gsap.timeline({
     scrollTrigger: {
       trigger: ".right-box-2",
       scroller: "body",
-      start: "27% 40%",
-      end: "90% 20%",
       // markers:true,
+
+      start: "top 20%",
+      end: "101% 20%",
       scrub: 2,
-      pin: true 
+      pin: true,
+      onEnter: () => {
+        gsap.set(".right-box-2", { top: "20%" });
+      }
     }
   });
-  
-  
-  let pinTimeline3 = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".right-box-3",
-      scroller: "body",
-      start: "26.8% 40%",
-      end: "35% 25%",
-      // markers:true,
-      scrub: 2,
-      pin: true 
-    }
-  });
-  
-  
-  pinTimeline1.to(".right-box-1", { 
-    top:"-50%"
-   });
-  pinTimeline2.to(".right-box-2", { 
-    top: "0%"
-   });
-  pinTimeline3.to(".right-box-3", { 
-    top: "0%"
-   });
-  
-  
+
+  // let pinTimeline3 = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: ".right-box-3",
+  //     scroller: "body",
+  //     start: "top 20%",
+  //     markers:true,
+
+  //     end: "20% 20%",
+  //     scrub: 2,
+  //     pin: true,
+  //     onEnter: () => {
+  //       gsap.set(".right-box-3", { top: "20%" });
+  //     }
+  //   }
+  // });
   
   
   
@@ -581,9 +596,7 @@ function locoScrollTrigger() {
   
   }
   page4Animation()
-  
-  
-  
+
   
   
   
@@ -605,6 +618,7 @@ function locoScrollTrigger() {
   
   
   function scrollCover(){
+  if(window.innerWidth > 600){
     gsap.to(".scroll-cover",{
       transform: "translateY(-65%)",
       scaleY:0,
@@ -618,6 +632,21 @@ function locoScrollTrigger() {
         scrub:2
       }
     })
+  }else{
+    gsap.to(".scroll-cover",{
+      transform: "translateY(-65%)",
+      scaleY:0,
+      duration:0.2,
+      scrollTrigger:{
+        trigger:".page5",
+        scroller:"body",
+        start:"top 70%",
+        // markers:true,
+        end:"100% 70%",
+        scrub:2
+      }
+    })
+  }
     
   }
   
@@ -627,17 +656,39 @@ function locoScrollTrigger() {
   
   
   function page5Animation(){
-    gsap.to(".page5-left a h3",{
-      y:0,
-      duration:1,
-      scrollTrigger:{
-        scroller:"main",
-        trigger:".page5",
-        // markers: true,
-        start:"top 20%",
-        end: "30%"
-      }
-    })
+ if(window.innerWidth > 600){
+  gsap.to(".page5-left a h3",{
+    y:0,
+    duration:1,
+    scrollTrigger:{
+      scroller:"main",
+      trigger:".page5",
+      // markers: true,
+      start:"top 30%",
+      end: "top 30%",
+      scrub:2
+    }
+  })
+ }
+else{
+  gsap.to(".page5-left a h3",{
+    y:0,
+    duration:1,
+    scrollTrigger:{
+      scroller:"body",
+      scrub:2,
+      trigger:".page5",
+      // markers: true,
+      start:"top 20%",
+      end: " 20%"
+    }
+  })
+}
   }
   
   page5Animation();
+
+
+
+
+
