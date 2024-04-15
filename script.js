@@ -284,7 +284,7 @@ function locoScrollTrigger() {
       trigger:".page2",
        scroller:"body",
        scrub: 2,
-      //  markers: true,
+       markers: true,
        start:"0% 80%",
        end:"0% 80%",
       }
@@ -306,7 +306,7 @@ function locoScrollTrigger() {
       start: "30% 80%",
       end: "30% 80%",
       scrub: 2,
-      // markers: true
+      markers: true
     }
     
   })
