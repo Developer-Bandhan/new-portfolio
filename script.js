@@ -283,7 +283,6 @@ function locoScrollTrigger() {
       scrollTrigger:{
       trigger:".page2",
        scroller:"body",
-       scrub: 2,
        markers: true,
        start:"0% 80%",
        end:"0% 80%",
