@@ -270,6 +270,7 @@ function locoScrollTrigger() {
      scroller:"main",
      start:"top 100%",
      end:"0%",
+     scrub: 2
     }
   })
 
@@ -305,7 +306,7 @@ function locoScrollTrigger() {
       start: "30% 80%",
       end: "30% 80%",
       scrub: 2,
-      markers: true
+      // markers: true
     }
     
   })
